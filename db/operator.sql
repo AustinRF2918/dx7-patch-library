@@ -1,15 +1,9 @@
-CREATE DATABASE dx7;
-\dt
-\c
-\db
-\d
-
 CREATE DOMAIN DX7_HIGH_RES_VALUE AS SMALLINT DEFAULT 0 NOT NULL CHECK (VALUE >= 0 AND VALUE <= 99);
 CREATE TYPE level_scale_mode AS ENUM ('negative_linear', 'negative_exponential', 'linear', 'exponential');
 CREATE TYPE oscillator_mode AS ENUM ('ratio', 'fixed');
 
 CREATE TABLE operator (
-    enabled boolean DEFAULT FALSE NOT NULL,
+    enabled BOOLEAN DEFAULT FALSE NOT NULL,
 
     envelope_generator_rate_1 DX7_HIGH_RES_VALUE,
     envelope_generator_rate_2 DX7_HIGH_RES_VALUE,
