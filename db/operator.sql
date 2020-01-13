@@ -3,6 +3,8 @@ CREATE TYPE level_scale_mode AS ENUM ('negative_linear', 'negative_exponential',
 CREATE TYPE oscillator_mode AS ENUM ('ratio', 'fixed');
 
 CREATE TABLE operator (
+    id SERIAL PRIMARY KEY,
+
     enabled BOOLEAN DEFAULT FALSE NOT NULL,
 
     envelope_generator_rate_1 DX7_HIGH_RES_VALUE,
