@@ -29,4 +29,4 @@ CREATE TABLE patch (
     mod_sense_pitch SMALLINT DEFAULT 0 NOT NULL CHECK (mod_sense_pitch >= 0 AND mod_sense_pitch <= 7),
 
     transpose SMALLINT DEFAULT 0 NOT NULL CHECK (transpose >= 0 AND mod_sense_pitch <= 48)
-)
+);

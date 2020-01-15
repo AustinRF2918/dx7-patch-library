@@ -3,10 +3,6 @@ CREATE TYPE level_scale_mode AS ENUM ('negative_linear', 'negative_exponential',
 CREATE TYPE oscillator_mode AS ENUM ('ratio', 'fixed');
 
 CREATE TABLE operator (
-    id SERIAL PRIMARY KEY,
-
-    enabled BOOLEAN DEFAULT FALSE NOT NULL,
-
     envelope_generator_rate_1 DX7_HIGH_RES_VALUE,
     envelope_generator_rate_2 DX7_HIGH_RES_VALUE,
     envelope_generator_rate_3 DX7_HIGH_RES_VALUE,
@@ -36,5 +32,11 @@ CREATE TABLE operator (
 
     course_frequency SMALLINT DEFAULT 0 NOT NULL CHECK (course_frequency >= 0 AND course_frequency <= 31),
     fine_frequency DX7_HIGH_RES_VALUE,
-    detune SMALLINT DEFAULT 0 NOT NULL CHECK (detune >= 0 AND detune <= 14)
+    detune SMALLINT DEFAULT 0 NOT NULL CHECK (detune >= 0 AND detune <= 14),
+
+    enabled BOOLEAN DEFAULT FALSE NOT NULL,
+    operator_position SMALLINT DEFAULT 0 NOT NULL CHECK (operator_position >= 0 AND operator_position <= 5),
+    patch_id INTEGER REFERENCES patch(id),
+
+    PRIMARY KEY (patch_id, operator_position)
 );
