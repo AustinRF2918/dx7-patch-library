@@ -431,3 +431,21 @@ INSERT INTO patch_operator (
     5,
     TRUE
 );
+
+INSERT INTO bank (
+    name
+) VALUES (
+    'MOCK'
+);
+
+INSERT INTO bank_patch (
+    patch_id,
+    bank_id,
+    bank_position
+) VALUES (
+    1,
+    1,
+    0
+);
+
+
